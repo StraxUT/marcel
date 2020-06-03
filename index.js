@@ -393,11 +393,11 @@ bot.on('ready', message => {
           bot.user.setGame(`braquer le micromania.`)
           activNum = 3;
         }
-        // else if (activNum === 3) {
-        //   bot.user.setStatus("invisible")
-        //   bot.user.setGame(`Halo RP » ${prefix}help`)
-        //   activNum = 4;
-        // }
+        else if (activNum === 3) {
+          bot.user.setStatus("idle")
+          bot.user.setGame(`libérer John Ledou.`)
+          activNum = 0;
+        }
     }, 20 * 1000)
 
 
