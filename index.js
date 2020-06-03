@@ -19,6 +19,25 @@ var noperm = new Discord.RichEmbed()
     
 
 bot.on('message', message => {
+  if(message.content.startsWith(prefix + "embed")) {
+    var today = new Date();
+    message.delete()
+
+    let arg = message.content.split(" | ").slice(1);
+    let args = arg.join(" ")
+
+    if (!args) return message.channel.send(nogif + " » Vous n'avez pas mis le contenu de votre embed ! (moins de 2000 caractères)")
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(noperm)
+
+    var devBlog = new Discord.RichEmbed()
+
+    .setAuthor("📍 » "+ args[0])
+    .setColor('#36393f')
+    .setDescription(args[1])
+    .setTimestamp()
+    .setFooter(`🤖 ● MssClick - Braquages`)  
+    // .setImage("https://cdn.discordapp.com/attachments/666343495383908352/705175659307335720/image0.png")
+  }
     if (message.content.startsWith(prefix + "sondage")) {
       const yesgif = bot.emojis.get("717637341514301514");
       const nogif = bot.emojis.get("717637341665296385");
@@ -64,13 +83,6 @@ let embedReaction = new Discord.RichEmbed()
 
 bot.on('message', msg => {
 
-if(msg.content.startsWith(prefix+"reaction")){
-  if(!msg.channel.guild) return;
-  msg.channel.send(embedReaction).then(msg => {
-   msg.react("🔫");
-
-  })
- }
  if (msg.content.startsWith(prefix + "ping")) {
   msg.delete();
   const startTime = Date.now();
