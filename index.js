@@ -23,8 +23,8 @@ bot.on('message', message => {
     var today = new Date();
     message.delete()
 
-    let arg = message.content.split(" | ").slice(1);
-    let args = arg.join(" ")
+    let args = message.content.split(" | ").slice(1)
+
 
     if (!args) return message.channel.send(nogif + " » Vous n'avez pas mis le contenu de votre embed ! (moins de 2000 caractères)")
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(noperm)
