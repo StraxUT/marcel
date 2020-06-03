@@ -10,6 +10,53 @@ const colors = require("colors")
 const yesgif = bot.emojis.get("717637341514301514");
 const nogif = bot.emojis.get("717637341665296385");
 
+bot.on('guildMemberAdd', member => {
+    const salutation = bot.emojis.get("717646193710071808");
+
+    const channel = bot.channels.find("name", "🎉︱accueil")
+    var joinembed = new Discord.RichEmbed()
+        .setTitle(salutation +' | Nouvel Arrivant')
+
+        .setFooter(`🤖 ● MssClick - Braquages`)
+        .addField(`Bienvenue sur le serveur Discord de MssClick - Braquages !`, `Souahitez la bienvenue à ${member} | Nous sommes actuellement ${member.guild.memberCount} !`)
+        .setColor('#36393f')
+
+    channel.send(joinembed)
+
+})
+
+bot.on('guildMemberAdd', (member) => {
+    var ever = member.guild.roles.find(role => role.name === "@everyone");
+    var channel = member.guild.channels.filter(ch => ch.type == 'voice').find(ch => ch.name.startsWith('👥 | Membres » '));
+    if(channel){
+      channel.setName('👥 | Membres » '+member.guild.memberCount);
+    } 
+      
+})
+bot.on('message', message => {
+    if (message.content.startsWith(prefix + "setup")) {
+        message.delete()
+        if(!message.guild.member(message.author).hasPermission("VIEW_AUDIT_LOG")) return message.channel.send(noperm);
+
+        message.channel.send('**:white_check_mark: | __Setup mis en place__ !**')
+        var ever = message.guild.roles.find(role => role.name === "@everyone");
+        var channel = message.guild.channels.filter(ch => ch.type == 'voice').find(ch => ch.name.startsWith('👥 | Membres » '));
+        if(channel){
+          channel.setName('👥 | Membres » '+message.guild.memberCount);
+        } else {
+          message.guild.createChannel('👥 | Membres » '+message.guild.memberCount, 'voice').then(ch =>
+            ch.overwritePermissions(ever, {
+                VIEW_CHANNEL: true,
+                CONNECT: false
+            })
+          )
+        
+        }
+        
+
+    }
+})
+
 var noperm = new Discord.RichEmbed()
     .setTitle('" + nogif + "  » Erreur')
     .setDescription(nogif + "  Vous n'avez pas la permission d'utiliser cette commande !__")
