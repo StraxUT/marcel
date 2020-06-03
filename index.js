@@ -35,7 +35,9 @@ bot.on('message', message => {
     .setColor('#36393f')
     .setDescription(args[1])
     .setTimestamp()
-    .setFooter(`🤖 ● MssClick - Braquages`)  
+    .setFooter(`🤖 ● MssClick - Braquages`) 
+    
+    message.channel.send(devBlog)
     // .setImage("https://cdn.discordapp.com/attachments/666343495383908352/705175659307335720/image0.png")
   }
     if (message.content.startsWith(prefix + "sondage")) {
