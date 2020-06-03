@@ -26,7 +26,9 @@ bot.on('message', message => {
     let args = message.content.split(" | ").slice(1)
 
 
-    if (!args) return message.channel.send(nogif + " » Vous n'avez pas mis le contenu de votre embed ! (moins de 2000 caractères)")
+    if (!args[1]) return message.channel.send(nogif + " » Vous n'avez pas mis le contenu de votre embed ! (moins de 2000 caractères)")
+    if (!args[0]) return message.channel.send(nogif + " » Vous n'avez pas mis de titre à votre embed !")
+
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(noperm)
 
     var devBlog = new Discord.RichEmbed()
