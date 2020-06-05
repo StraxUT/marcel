@@ -395,7 +395,7 @@ bot.on('ready', message => {
         }
         else if (activNum === 3) {
           bot.user.setStatus("idle")
-          bot.user.setGame(`libérer John Ledou.`)
+          bot.user.setGame(`libérer tout le monde.`)
           activNum = 0;
         }
     }, 20 * 1000)
