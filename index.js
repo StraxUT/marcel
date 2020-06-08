@@ -623,7 +623,7 @@ bot.on('message', message => {
         const vio = bot.emojis.get("717637500075507744");
         const jaun = bot.emojis.get("717637500469903420");
         let choixemb = new Discord.RichEmbed()
-            .setTitle('👥 » Tu préfères ? par: ' + message.author)
+            .setTitle('👥 » Tu préfères ? par: ' + message.author.username)
             .addField('Fais ton choix...\n\n', `${vio} » __${args[0]}__\n\n${jaun} » __${args[1]}__`)
             .setColor('#36393f')
             .setFooter(`🤖 ● MssClick - Braquages`)
