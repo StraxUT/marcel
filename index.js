@@ -613,7 +613,6 @@ bot.on("message", message => {
 bot.on('message', message => {
     if (message.content.startsWith(prefix + "choix")) {
         message.delete()
-        if (!message.member.hasPermission('VIEW_AUDIT_LOG')) return message.channel.send(">" + nogif + " » Vous n'avez pas la permission d'utiliser cette commande !")
         let args = message.content.split(" | ").slice(1)
         if(!args[0]) return message.channel.send(">" + nogif + " » Veuillez préciser votre __premier__ choix afin de mettre en ligne votre 'Tu préfères ?'  !").then( message => {
             message.delete(10000)
@@ -624,7 +623,7 @@ bot.on('message', message => {
         const vio = bot.emojis.get("717637500075507744");
         const jaun = bot.emojis.get("717637500469903420");
         let choixemb = new Discord.RichEmbed()
-            .setTitle('👥 » Tu préfères ?')
+            .setTitle('👥 » Tu préfères ? par: ' + message.author)
             .addField('Fais ton choix...\n\n', `${vio} » __${args[0]}__\n\n${jaun} » __${args[1]}__`)
             .setColor('#36393f')
             .setFooter(`🤖 ● MssClick - Braquages`)
