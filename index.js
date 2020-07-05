@@ -567,13 +567,13 @@ bot.on('message', async message => {
     const nogif = bot.emojis.get("717637341665296385");
 
     
-    if(!bddticket[message.guild.id] == 1) return message.channel.send(">" + nogif + " ● Le système de tickets est __désactivé__ sur votre serveur !**\n ``" + prefix + "ticket set on``")
+    if(!bddticket[message.guild.id] == 1) return message.channel.send("> " + nogif + " ● Le système de tickets est __désactivé__ sur votre serveur !**\n ``" + prefix + "ticket set on``")
 
 
     
  if(!message.guild.roles.exists(role => role.name === "👥 ● Staff")) return message.channel.send(nogif + "  ● Veuillez créer un rôle** \n```👥 ● Staff```")    
 
-    var roleeve = message.guild.roles.find(role => role.name === "|| @everyone ||");
+    var roleeve = message.guild.roles.find(role => role.name === "@everyone");
 
     var access = message.guild.roles.find(role => role.name === "👥 ● Staff");
 
