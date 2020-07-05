@@ -623,7 +623,7 @@ bot.on('message', async message => {
   .addField("📕 ● Auteur", message.author)
   .addField("📘 ● Channel", channelticket)
 
-  bot.channels.get("705510681147080734").send(embTicketCreate)
+  bot.channels.get("717442513689903201").send(embTicketCreate)
 
 
 /* JSON */
@@ -648,7 +648,6 @@ let embednewticket = new Discord.RichEmbed()
  .setColor('#36393f')
  .setAuthor(`👥 ● Ticket Support`, bot.user.avatarURL)
  .setFooter(`🤖 ● Hartford`)
-
  .setDescription(`Bonjour __${message.author}__ !\nBienvenue sur l'espace dédié à votre ticket, veuillez préciser votre requête ou vos questions, les membres du staff vous répondront d'ici peu.\n\nVous pouvez fermer votre ticket avec la commande suivante: ?ticket close !`)
  channelticket.send(embednewticket)
 
