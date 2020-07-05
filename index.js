@@ -122,7 +122,7 @@ bot.on('message', message => {
 })
 
 
-var emojiname = ["🔫", "🔫"];
+var emojiname = ["🏬", "🏬"];
 var rolename=["⚡️ ● Membre", "⚡️ ● Membre"];
 
 
@@ -152,7 +152,7 @@ bot.on("messageReactionAdd",(reaction,user)=>{
   if(user.bot)return;
   if(!reaction.message.channel.guild) return;
   for(let n in emojiname){
-  if(reaction.emoji.name == "🔫"){
+  if(reaction.emoji.name == "🏬"){
     let role = reaction.message.guild.roles.find(r => r.name == rolename[n]);          
     reaction.message.guild.member(user).addRole(role).catch(console.error);
   }
@@ -166,7 +166,7 @@ bot.on("messageReactionRemove",(reaction,user)=>{
   if(user.bot)return;
   if(!reaction.message.channel.guild) return;
   for(let n in emojiname){
-  if(reaction.emoji.name == "🔫"){
+  if(reaction.emoji.name == "🏬"){
     let role = reaction.message.guild.roles.find(r => r.name == rolename[n]);   
     reaction.message.guild.member(user).removeRole(role).catch(console.error);
   }
