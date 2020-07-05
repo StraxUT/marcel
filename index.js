@@ -240,7 +240,7 @@ bot.on('message', message => {
         if(user.hasPermission("ADMINISTRATOR")) return message.channel.send(">" + nogif + " ● Cet Utilisateur ne peut être bannis !");
         
 
-        var roleevde = message.guild.roles.find(role => role.name === "|| @everyone ||");
+        var roleevde = message.guild.roles.find(role => role.name === "@everyone");
         var rolestaffs = message.guild.roles.find(role => role.name === "👤 ● Chef de Bande");
         message.guild.createChannel(`⛔︱sanctions`, "text").then(od => {
         
@@ -460,7 +460,7 @@ bot.on('message', async message => {
   if (message.content.startsWith(prefix + "ticket")) {
       message.delete()
 
-      var roleeve = message.guild.roles.find(role => role.name === "|| @everyone ||");
+      var roleeve = message.guild.roles.find(role => role.name === "@everyone");
 
       var access = message.guild.roles.find(role => role.name === "👥 ● Staff");
 
